@@ -336,7 +336,7 @@ const updateProductById = async function (req, res) {
     }
 
     let updatedData = await productModel.findOneAndUpdate({ _id: productId }, data, { new: true })
-    res.status(200).send({ status: true, message: "updated", data: updatedData })
+    res.status(200).send({ status: true, message: "Success", data: updatedData })
 
   } catch (err) {
     return res.status(500).send({ status: false, error: err.message });
@@ -358,7 +358,7 @@ const deleteProducts = async function (req, res) {
       return res.status(404).send({ status: false, message: "Product already deleted" });
     }
     let deletedData = await productModel.findOneAndUpdate({ _id: productId }, { isDeleted: true, deletedAt: new Date() }, { new: true })
-    return res.status(200).send({ status: true, message: "success", data: deletedData })
+    return res.status(200).send({ status: true, message: "Success", data: deletedData })
 
   } catch (err) {
     return res.status(500).send({ status: false, error: err.message });

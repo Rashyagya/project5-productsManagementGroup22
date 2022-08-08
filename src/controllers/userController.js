@@ -168,7 +168,7 @@ const loginUser = async function (req, res) {
     res.header("Authorization", "Bearer : " + token);
     return res.status(200).send({
       status: true,
-      message: "User logged in successfully", data: { userId: hash._id, token: token }
+      message: "Success", data: { userId: hash._id, token: token }
     });
 
   } catch (err) {
@@ -192,7 +192,7 @@ const getUser = async function (req, res) {
 
     let data = await userModel.findOne({ _id: userId });
 
-    res.status(200).send({ status: true, message: "User profile details", data: data })
+    res.status(200).send({ status: true, message: "Success", data: data })
 
   } catch (err) {
     res.status(500).send({ status: false, message: err.message });
